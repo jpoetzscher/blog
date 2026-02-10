@@ -1,0 +1,456 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  margin: 0rem 3rem 3rem;
+  background: #fffcec;
+  color: #000;
+  line-height: 1.7;
+
+  /* “mathy” serif stack */
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Garamond,
+    "Times New Roman", Times, serif;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.25rem 0; /* gives it nicer breathing room */
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;       /* consistent spacing */
+  align-items: center;
+}
+
+/* make the click area feel nicer + underline look intentional */
+.navbutton {
+  display: inline-block;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.navbutton:hover {
+  text-decoration-thickness: 2px;
+}
+
+a {
+  font-weight: 600;
+  /*background-color: rgb(170, 189, 229);*/
+  color: inherit;
+  text-decoration: none;
+  /*text-underline-offset: 0.14em;
+  text-decoration-thickness: 1px;*/
+}
+
+a:hover {
+  /*background-color: rgb(208, 223, 255);*/
+  /*text-decoration-thickness: 2px;*/
+}
+
+button {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Garamond,
+    "Times New Roman", Times, serif;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0rem 0rem 5%;
+  margin: 0 0;
+
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 0;
+  padding: 1rem 0rem 1rem 5%;
+}
+
+.left {
+  flex: 0 0 45%;
+  gap: 3%; 
+}
+
+.right {
+  flex: 0 0 45%;
+  padding: 0 0 0 2rem;
+}
+
+.draw-card {
+  width: min(100%, 680px);
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #fffdf3 0%, #f5f7ff 100%);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+}
+
+.draw-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.draw-header h4 {
+  margin: 0;
+}
+
+.draw-hint {
+  margin: 0.4rem 0 0.75rem;
+}
+
+.draw-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.78rem;
+}
+
+.draw-controls input[type="range"] {
+  width: 120px;
+}
+
+.draw-controls input[type="color"] {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 5px;
+  padding: 0;
+  background: #fff;
+}
+
+.draw-button {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.draw-button:hover {
+  background: #f2f3f7;
+}
+
+#draw-canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #ffffff;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.squirrel-card {
+  padding: 1rem;
+}
+
+.squirrel-title {
+  margin: 0rem;
+  text-align: center;
+}
+
+.squirrel-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+}
+
+.squirrel-caption {
+  margin: 0.55rem 0 0;
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.78;
+}
+
+/* ===== Writing list ===== */
+.writing-intro {
+  margin: 0 0 1.1rem;
+  max-width: 62ch;
+}
+
+.writing-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.writing-item {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.writing-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.writing-title a {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+  text-decoration-thickness: 1px;
+}
+
+.writing-title a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.writing-meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
+/* ===== Article pages ===== */
+.article-shell {
+  padding: 0 0 0 7.25%;
+}
+
+.article-layout {
+  display: flex;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: flex-start;
+}
+
+.article-main {
+  flex: 1 1 auto;
+  max-width: 860px;
+}
+
+.article-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin: 0 0 1.3rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.article-kicker {
+  margin: 0;
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.article-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.1vw, 2.1rem);
+  line-height: 1.18;
+}
+
+.article-meta {
+  margin: 0.45rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.72;
+}
+
+.article-content p {
+  margin: 0 0 1.1rem;
+  max-width: 80ch;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.article-content p:last-child {
+  margin-bottom: 0;
+}
+
+.article-content a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.article-template-note {
+  margin-top: 1.2rem;
+  padding: 0.9rem 1rem;
+  border: 1px dashed rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.35);
+  font-size: 0.8rem;
+}
+
+/* typography */
+h1,
+h2 {
+  line-height: 1.25;
+  margin: 0 0 0.9rem;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+h4 {
+  font-size: 1rem;
+  margin: 0.7rem 0;
+}
+
+p {
+  font-size: 0.8rem;
+
+}
+
+.solid {
+  background-color:rgb(168, 185, 255);
+}
+.solid:hover {
+  background-color: rgb(232, 236, 255);
+}
+.MOHS { 
+    font-weight: 900;
+}
+
+
+/*problems*/
+
+.problem-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.8rem;
+}
+
+.problem-list li {
+  margin: 0.35rem 0;
+}
+
+.problem-item {
+  position: relative; /* anchor for the tooltip */
+}
+
+.problem-label {
+  position: relative;
+  cursor: default;
+  display: inline-block; /* makes hover area behave nicely */
+  font-weight: 600;
+}
+
+.problem-tooltip {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.5rem);
+
+  width: min(520px, 80vw);
+  padding: 0.75rem 0.9rem;
+
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+  z-index: 999;
+
+  /* hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+
+  transition: opacity 140ms ease, transform 140ms ease, visibility 140ms ease;
+
+  /* if the statement is long */
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.problem-label:hover .problem-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: none;
+}
+
+.tooltip-title {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.tooltip-body {
+  font-size: 0.8rem; /* match your p sizing */
+  line-height: 1.5;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (min-width: 720px) {
+  html {
+    font-size: 18px;
+  }
+
+  h1 {
+    /*font-size: 2.25rem;*/
+  }
+}
+
+@media (max-width: 960px) {
+  .top {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .left {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .right {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 5% 1rem;
+  }
+
+  .draw-card {
+    width: 100%;
+  }
+
+  .draw-controls {
+    flex-wrap: wrap;
+  }
+
+  .article-shell {
+    padding-left: 0;
+  }
+
+  .article-layout {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .article-main {
+    max-width: 100%;
+  }
+
+  .article-content p {
+    font-size: 0.9rem;
+  }
+}
